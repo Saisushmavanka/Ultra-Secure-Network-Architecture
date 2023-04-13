@@ -13,6 +13,7 @@ c=db['register']
 c1=db['data']
 
 app=Flask(__name__)
+app.secret_key='c15sacet'
 
 @app.route('/')
 def homePage():
