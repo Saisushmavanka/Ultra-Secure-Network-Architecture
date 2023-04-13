@@ -58,6 +58,10 @@ def loginUser():
             return redirect('/dashboard')
     return render_template('login.html',err='Invalid login')
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 @app.route('/insertdata',methods=['post'])
 def insertdata():
     data=request.form['data']
