@@ -33,10 +33,10 @@ def logout():
 
 @app.route('/registeruser',methods=['post','get'])
 def registerUser():
-    name=request.form('name')
-    mobileno=request.form('mobileno')
-    emailid=request.form('emailid')
-    password=request.form('password')
+    name=request.form['name']
+    mobileno=request.form['mobileno']
+    emailid=request.form['emailid']
+    password=request.form['password']
     print(name,mobileno,emailid,password)
     k={}
     k['name']=name
@@ -48,8 +48,8 @@ def registerUser():
 
 @app.route('/loginuser',methods=['post','get'])
 def loginUser():
-    mobileno=request.form('mobileno')
-    password=request.form('password')
+    mobileno=request.form['mobileno']
+    password=request.form['password']
     print(mobileno,password)
     for i in c.find():
         if(i['mobileno']==mobileno and i['password']==password):
@@ -59,7 +59,7 @@ def loginUser():
 
 @app.route('/insertdata',methods=['post'])
 def insertdata():
-    data=request.form('data')
+    data=request.form['data']
     print(data)
     encMessage = fernet.encrypt(data.encode())
     decMessage = fernet.decrypt(encMessage).decode()
